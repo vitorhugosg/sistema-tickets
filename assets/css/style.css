@@ -1,0 +1,867 @@
+* { box-sizing:border-box; }
+
+#login {
+	font-family: Helvetica;
+	background: #eee;
+  -webkit-font-smoothing: antialiased;
+}
+
+#login hgroup { 
+	text-align:center;
+	margin-top: 4em;
+}
+
+#login h1, h3 { font-weight: 300; }
+
+#login h1 { color: #636363; }
+
+#login h3 { color: #4a89dc; }
+
+#login form {
+	width: 380px;
+	margin: 4em auto;
+	padding: 3em 2em 2em 2em;
+	background: #fafafa;
+	border: 1px solid #ebebeb;
+	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+#login .group { 
+	position: relative; 
+	margin-bottom: 45px; 
+}
+
+#login input {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fafafa;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+  padding-left: 70px;
+}
+
+#login input:focus { outline: none; }
+
+
+/* Label */
+
+#login label {
+	color: #999; 
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: all 0.2s ease;
+}
+
+
+/* active */
+
+#login input:focus ~ label, input.used ~ label {
+	top: -20px;
+  transform: scale(.75); left: -2px;
+  /* font-size: 14px; */
+  color: #4a89dc;
+}
+
+
+/* Underline */
+
+#login .bar {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+#login .bar:before, .bar:after {
+	content: '';
+	height: 2px; 
+	width: 0;
+	bottom: 1px; 
+	position: absolute;
+	background: #4a89dc; 
+	transition: all 0.2s ease;
+}
+
+#login .bar:before { left: 50%; }
+
+#login .bar:after { right: 50%; }
+
+
+/* active */
+
+#login input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
+
+
+/* Highlight */
+
+#login .highlight {
+	position: absolute;
+	height: 60%; 
+	width: 100px; 
+	top: 25%; 
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+
+/* active */
+
+#login input:focus ~ .highlight {
+	animation: inputHighlighter 0.3s ease;
+}
+
+
+/* Animations */
+
+#login @keyframes inputHighlighter {
+	from { background: #4a89dc; }
+	to 	{ width: 0; background: transparent; }
+}
+
+
+/* Button */
+
+#login .button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: .3em 0 1em 0;
+  width: 100%;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #3160B6;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+#login .button:focus { outline: 0; }
+
+
+/* Button modifiers */
+
+#login .buttonBlue {
+  background: #4a89dc;
+  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+
+#login .buttonRed {
+  background: #1BA39C;
+  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+  text-decoration: none;
+}
+
+#login .buttonBlue:hover { background: #357bd8; }
+
+
+/* Ripples container */
+
+#login .ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* Ripples circle */
+
+#login .ripplesCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#login .ripples.is-active .ripplesCircle {
+  animation: ripples .4s ease-in;
+}
+
+
+/* Ripples animation */
+
+#login @keyframes ripples {
+  0% { opacity: 0; }
+
+  25% { opacity: 1; }
+
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+#login footer { text-align: center; }
+
+#login footer p {
+	color: #888;
+	font-size: 13px;
+	letter-spacing: .4px;
+}
+
+#login footer a {
+	color: #4a89dc;
+	text-decoration: none;
+	transition: all .2s ease;
+}
+
+#login footer a:hover {
+	color: #666;
+	text-decoration: underline;
+}
+
+#login footer img {
+	width: 80px;
+	transition: all .2s ease;
+}
+
+#login footer img:hover { opacity: .83; }
+
+#login footer img:focus , footer a:focus { outline: none; }
+#login .ou{
+	text-align: center;
+}
+#view-source {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+.demo-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.demo-layout .mdl-layout__header .mdl-layout__drawer-button {
+  color: rgba(0, 0, 0, 0.54);
+}
+.mdl-layout__drawer .avatar {
+  margin-bottom: 16px;
+}
+.demo-drawer {
+  border: none;
+}
+/* iOS Safari specific workaround */
+.demo-drawer .mdl-menu__container {
+  z-index: -1;
+}
+.demo-drawer .demo-navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */
+.demo-drawer .mdl-menu .mdl-menu__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.demo-drawer-header {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+.demo-avatar-dropdown {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.demo-navigation {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.demo-layout .demo-navigation .mdl-navigation__link {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 500;
+}
+.demo-layout .demo-navigation .mdl-navigation__link:hover {
+  background-color: #00BCD4;
+  color: #37474F;
+}
+.demo-navigation .mdl-navigation__link .material-icons {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.56);
+  margin-right: 32px;
+}
+
+.demo-content {
+  max-width: 100%;
+}
+
+.demo-charts {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.demo-chart:nth-child(1) {
+  color: #ACEC00;
+}
+.demo-chart:nth-child(2) {
+  color: #00BBD6;
+}
+.demo-chart:nth-child(3) {
+  color: #BA65C9;
+}
+.demo-chart:nth-child(4) {
+  color: #EF3C79;
+}
+.demo-graphs {
+  padding: 16px 32px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+/* TODO: Find a proper solution to have the graphs
+ * not float around outside their container in IE10/11.
+ * Using a browserhacks.com solution for now.
+ */
+ _:-ms-input-placeholder, :root .demo-graphs {
+  min-height: 664px;
+}
+_:-ms-input-placeholder, :root .demo-graph {
+  max-height: 300px;
+}
+/* TODO end */
+.demo-graph:nth-child(1) {
+  color: #00b9d8;
+}
+.demo-graph:nth-child(2) {
+  color: #d9006e;
+}
+
+.demo-cards {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+.demo-cards .demo-separator {
+  height: 32px;
+}
+.demo-cards .mdl-card__title.mdl-card__title {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+}
+.demo-cards ul {
+  padding: 0;
+}
+.demo-cards h3 {
+  font-size: 1em;
+}
+.demo-updates .mdl-card__title {
+  min-height: 200px;
+  background-image: url('images/dog.png');
+  background-position: 90% 100%;
+  background-repeat: no-repeat;
+}
+.demo-cards .mdl-card__actions a {
+  color: #00BCD4;
+  text-decoration: none;
+}
+
+.demo-options h3 {
+  margin: 0;
+}
+.demo-options .mdl-checkbox__box-outline {
+  border-color: rgba(255, 255, 255, 0.89);
+}
+.demo-options ul {
+  margin: 0;
+  list-style-type: none;
+}
+.demo-options li {
+  margin: 4px 0;
+}
+.demo-options .material-icons {
+  color: rgba(255, 255, 255, 0.89);
+}
+.demo-options .mdl-card__actions {
+  height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.mdl-layout__drawer-button i.material-icons{
+  margin-top: 10px;
+}
+
+
+
+/*TABLE*/
+
+.dataTables_wrapper{
+  overflow-x: auto !important;
+  width: 100%;
+}
+
+.dataTables_length label{
+  display: none !important;
+}
+.dataTables_filter label input{
+  height: 30px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 0px !important;
+  margin-right: 9px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 14px !important;
+  color: #999;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.dataTables_filter label{
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 14px !important;
+  color: #999;
+  text-transform: uppercase !important;
+  font-weight: bold;
+}
+
+.mdl-cell--4-col .dataTables_info{
+  padding-left: 9px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 14px !important;
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase !important;
+}
+.demo-content .mdl-button{
+  border-radius: 0px;
+}
+
+.mdl-menu__item a{
+  text-decoration: none;
+}
+.width100{
+  width: 100%;
+  display: block;
+  float: left;
+}
+/* novo ticket */
+
+.novo-ticket .file_input_div {
+  width: 250px;
+  height: 40px;
+}
+
+.novo-ticket .file_input {
+  float: left;
+}
+
+.novo-ticket #file_input_text_div {
+  width: 200px;
+  margin-top: -8px;
+  margin-left: 5px;
+}
+
+.novo-ticket .none {
+  display: none;
+}
+.novo-ticket .mdl-textfield__label{
+  color: #969696;
+}
+.novo-ticket p{
+  padding-left: 9px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 14px !important;
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase !important;
+  clear: both;
+}
+
+.novo-ticket h4{
+  padding-left: 9px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 25px !important;
+  color: #101010;
+  font-weight: bold;
+  text-transform: uppercase !important;
+  clear: both;
+}
+.novo-ticket .mdl-textfield__label{
+  padding-left: 9px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+  font-size: 12px !important;
+  color: #999;
+  text-transform: uppercase !important;
+  clear: both;
+}
+
+.pull-right{
+  float: right;
+}
+
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+ /* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+   */
+   /* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ /* ==========  Color Palettes  ========== */
+ /* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ /* ==========  IMAGES  ========== */
+ /* ==========  Color & Themes  ========== */
+ /* ==========  Typography  ========== */
+ /* ==========  Components  ========== */
+ /* ==========  Standard Buttons  ========== */
+ /* ==========  Icon Toggles  ========== */
+ /* ==========  Radio Buttons  ========== */
+ /* ==========  Ripple effect  ========== */
+ /* ==========  Layout  ========== */
+ /* ==========  Content Tabs  ========== */
+ /* ==========  Checkboxes  ========== */
+ /* ==========  Switches  ========== */
+ /* ==========  Spinner  ========== */
+ /* ==========  Text fields  ========== */
+ /* ==========  Card  ========== */
+ /* ==========  Sliders ========== */
+ /* ========== Progress ========== */
+ /* ==========  List ========== */
+ /* ==========  Item ========== */
+ /* ==========  Dropdown menu ========== */
+ /* ==========  Tooltips  ========== */
+ /* ==========  Footer  ========== */
+ /* TEXTFIELD */
+ /* SWITCH */
+ /* SPINNER */
+ /* RADIO */
+ /* MENU */
+ /* LIST */
+ /* LAYOUT */
+ /* ICON TOGGLE */
+ /* FOOTER */
+ /*mega-footer*/
+ /*mini-footer*/
+ /* CHECKBOX */
+ /* CARD */
+ /* Card dimensions */
+ /* Cover image */
+ /* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+ /* ANIMATION */
+ /* PROGRESS */
+ /* BADGE */
+ /* SHADOWS */
+ /* GRID */
+ /* DATA TABLE */
+ /* DIALOG */
+ /* SNACKBAR */
+ /* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ /* Typography */
+ /* Shadows */
+ /* Animations */
+ /* Dialog */
+ .mdl-selectfield {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px 0; }
+
+  .mdl-selectfield--align-right {
+    text-align: right; }
+
+    .mdl-selectfield--full-width {
+      width: 100%; }
+
+      .mdl-selectfield__select {
+        display: block;
+        width: 100%;
+        padding: 4px 0;
+        margin: 0;
+        color: inherit;
+        background: transparent;
+        font-size: 16px;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0, 0.12);
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none; }
+        .mdl-selectfield__select::-ms-expand {
+          display: none; }
+          .mdl-selectfield.is-focused .mdl-selectfield__select {
+            outline: none; }
+            .mdl-selectfield.is-invalid .mdl-selectfield__select {
+              border-color: rgb(222, 50, 38);
+              box-shadow: none; }
+              fieldset[disabled] .mdl-selectfield .mdl-selectfield__select, .mdl-selectfield.is-disabled .mdl-selectfield__select {
+                background-color: transparent;
+                border-bottom: 1px dotted rgba(0,0,0, 0.12);
+                color: rgba(0,0,0, 0.26); }
+
+                .mdl-selectfield__label {
+                  bottom: 0;
+                  color: rgba(0,0,0, 0.26);
+                  font-size: 16px;
+                  left: 0;
+                  right: 0;
+                  pointer-events: none;
+                  position: absolute;
+                  display: block;
+                  top: 24px;
+                  width: 100%;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-align: left; }
+                  .mdl-selectfield.is-dirty .mdl-selectfield__label {
+                    visibility: hidden; }
+                    .mdl-selectfield--floating-label .mdl-selectfield__label {
+                      transition-duration: 0.2s;
+                      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+                      fieldset[disabled] .mdl-selectfield .mdl-selectfield__label,
+                      .mdl-selectfield.is-disabled.is-disabled .mdl-selectfield__label {
+                        color: rgba(0,0,0, 0.26); }
+                        .mdl-selectfield--floating-label.is-focused .mdl-selectfield__label,
+                        .mdl-selectfield--floating-label.is-dirty .mdl-selectfield__label {
+                          color: rgb(63,81,181);
+                          font-size: 12px;
+                          top: 4px;
+                          visibility: visible; }
+                          .mdl-selectfield--floating-label.is-invalid .mdl-selectfield__label {
+                            color: rgb(222, 50, 38);
+                            font-size: 12px; }
+                            .mdl-selectfield__label:after {
+                              background-color: rgb(63,81,181);
+                              bottom: 20px;
+                              content: '';
+                              height: 2px;
+                              left: 45%;
+                              position: absolute;
+                              transition-duration: 0.2s;
+                              transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                              visibility: hidden;
+                              width: 10px; }
+                              .mdl-selectfield.is-focused .mdl-selectfield__label:after {
+                                left: 0;
+                                visibility: visible;
+                                width: 100%; }
+                                .mdl-selectfield.is-invalid .mdl-selectfield__label:after {
+                                  background-color: rgb(222, 50, 38); }
+
+                                  .mdl-selectfield__error {
+                                    color: rgb(222, 50, 38);
+                                    position: absolute;
+                                    font-size: 12px;
+                                    margin-top: 3px;
+                                    visibility: hidden;
+                                    display: block; }
+                                    .mdl-selectfield.is-invalid .mdl-selectfield__error {
+                                      visibility: visible; }
+
+                                      .mdl-selectfield__icon {
+                                        bottom: 20px;
+                                        cursor: pointer;
+                                        color: rgba(0,0,0, 0.26);
+                                        padding: 4px 0;
+                                        position: absolute;
+                                        top: 20px;
+                                        right: 0;
+                                        pointer-events: none; }
+                                        .mdl-selectfield__icon > i {
+                                          outline: 0; }
+                                          .mdl-selectfield.is-dirty .mdl-selectfield__icon {
+                                            color: inherit; }
+                                            fieldset[disabled] .mdl-selectfield .mdl-selectfield__icon,
+                                            .mdl-selectfield.is-disabled.is-disabled .mdl-selectfield__icon {
+                                              color: rgba(0,0,0, 0.26); }
+                                              .mdl-selectfield--floating-label.is-invalid .mdl-selectfield__icon {
+                                                color: rgb(222, 50, 38); }
+
+
+.avisook{
+padding-left: 35px;
+font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+font-size: 14px !important;
+line-height: 20px;
+color: green;
+font-weight: bold;
+text-transform: uppercase !important;
+margin-bottom: 0px;
+}
