@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 21-Mar-2017 às 20:43
+-- Generation Time: 21-Mar-2017 às 21:58
 -- Versão do servidor: 5.6.35
 -- PHP Version: 7.1.1
 
@@ -54,7 +54,8 @@ CREATE TABLE `relacionamentos` (
 INSERT INTO `relacionamentos` (`id`, `id_seguidor`, `id_seguido`) VALUES
 (2, 2, 2),
 (3, 4, 4),
-(4, 5, 5);
+(4, 5, 5),
+(6, 6, 6);
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,7 @@ ALTER TABLE `historico_ticket`
 -- AUTO_INCREMENT for table `relacionamentos`
 --
 ALTER TABLE `relacionamentos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ticket`
 --

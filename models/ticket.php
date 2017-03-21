@@ -176,6 +176,9 @@ class ticket extends model{
 			return true;
 		}
 	}
+
+	//fechando status do ticket
+	
 }
 
 
