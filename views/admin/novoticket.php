@@ -21,8 +21,10 @@
 				<p style="color: green !important;">
 					<?php echo $aviso ?>
 				</p>
-			</div>
-		<?php endif ?>
+
+			<?php endif ?>
+		</div>
+
 		<form method="POST" class="mdl-cell--12-col mdl-grid">
 			<div class="mdl-cell--6-col mdl-grid">
 				<div class="mdl-textfield mdl-js-textfield">
@@ -45,7 +47,8 @@
 
 			<div class="mdl-cell--12-col mdl-grid">
 				<div class="mdl-textfield mdl-js-textfield width100">
-					<textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" name="descricaoTicket"  required>teste</textarea>
+					<textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" name="descricaoTicket"  required></textarea>
+					 <label class="mdl-textfield__label" for="sample5">Escreva aqui as informações do seu problema</label>
 
 				</div>
 			</div>
@@ -75,5 +78,4 @@
 			</div>
 		</form>
 	</div>
-</div>
 </main>

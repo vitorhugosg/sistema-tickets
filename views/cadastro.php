@@ -10,7 +10,7 @@
 <body id="login">
 
 	<hgroup>
-		<h4>Sistema de tickets - by Taller </h4>
+		<h4>Sistema de tickets - para Taller </h4>
 		<h6><i>por Vitor Gonçalves</i></h6>
 	</hgroup>
 	<form method="POST">

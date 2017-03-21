@@ -493,7 +493,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   font-size: 14px !important;
   color: #999;
   font-weight: bold;
-  text-transform: uppercase !important;
+  text-transform: uppercase ;
 }
 .demo-content .mdl-button{
   border-radius: 0px;
@@ -536,7 +536,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   font-size: 14px !important;
   color: #999;
   font-weight: bold;
-  text-transform: uppercase !important;
+  text-transform: uppercase ;
   clear: both;
 }
 
@@ -864,4 +864,19 @@ color: green;
 font-weight: bold;
 text-transform: uppercase !important;
 margin-bottom: 0px;
+}
+
+.dentro-ticket-text{
+  font-size: 12px !important;
+  font-weight: lighter !important;
+  color: #ccc;
+  text-transform: none !important;
+
+}
+
+.datao{
+  font-size: 10px !important;
+  color: #adadad !important;
+  font-weight: lighter !important;
+  text-transform: none;
 }

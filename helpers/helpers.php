@@ -11,6 +11,14 @@ class helpers{
 			return "Concluído.";
 		}
 	}
+
+	public function gerarIdUnico(){
+		return rand(time(), 99);
+	}
+
+	public function formatarData($data){
+
+	}
 }
 
 

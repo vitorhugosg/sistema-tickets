@@ -90,9 +90,10 @@ var table = $('#table');
 //table order
 $('#table-suporte').DataTable( {
   columnDefs: [{
-    targets: [ 0, 1, 2 ],
+    targets: [ 0, 1],
     className: 'mdl-data-table__cell--non-numeric'
   }],
+  order: [ 0, 'desc' ],
   "oLanguage": {
     "sProcessing":   "<div class='mdl-spinner mdl-js-spinner is-active'></div>",
     "sLengthMenu":   "Mostrar _MENU_ tickets",
@@ -111,6 +112,8 @@ $('#table-suporte').DataTable( {
     }
   }
 });
+
+
 
 // jQuery’s hasClass and removeClass on steroids
 // by Nikita Vasilyev

@@ -32,7 +32,13 @@ class homeController extends controller {
         //mostrando dados do usuario na tabela
         $ticket = new ticket();
         $lista = $u->getSeguidos();
-        $dados['ticketTable'] = $ticket->mostrarTickets($lista);
+        //aqui vou ver se é usuario ou admin
+        $nivel = $u->getAdmin($_SESSION['twlg']);
+        if($nivel == '1'){
+            $dados['ticketTable'] = $ticket->mostrarTicketsAdmin($lista);
+        }else{
+             $dados['ticketTable'] = $ticket->mostrarTickets($lista);
+        }
         $helper = new helpers();
         //print_r($_SESSION['twlg']); exit;
         $this->LoadTemplate('home', $dados);
@@ -40,7 +46,7 @@ class homeController extends controller {
     //novo ticket view
     public function novoticket() {
         $dados = array(
-            'nome' => 'Vitor'
+            'nome' => ''
             );
 
         $u = new usuarios();
@@ -63,9 +69,10 @@ class homeController extends controller {
                 $ticket = new ticket();
                 $ticket->inserirTicket($nomeProduto, $categoria, $texto, $idUsuario, $arquivo);
                 //retornavar para index
+                 $_SESSION['aviso'] = 'novoticketok';
+                 $_SESSION['alerta'] = 'Seu ticket foi adicionado com sucesso';
 
-
-                header('Location: ' . BASE_URL . '?aviso=novoticketok');
+                header('Location: ' . BASE_URL);
 
             }else{
                 $data['avisored'] = "Por favor, verifique se todos os campos estão preenchidos.";
@@ -73,6 +80,46 @@ class homeController extends controller {
         }
         //print_r($_SESSION['twlg']); exit;
         $this->LoadTemplate('novoticket', $dados);
+    }
+
+    //ver ticket
+    public function verticket($codigo) {
+        $dados = array(
+            'nome' => ''
+            );
+        $u = new usuarios();
+        $nomeUsuario = $u->getNome($_SESSION['twlg']);
+        $dados['nome'] = $u->getNome($_SESSION['twlg']);
+
+
+        //instanciando classe historico de tickets
+        $historicoTickets = new historico_ticket();
+
+        //fazendo tratamento de form
+        if (isset($_POST['novoHistoricoTicket'])) {
+            $novoHistorico = addslashes($_POST['novoHistoricoTicket']);
+
+            if (!empty($novoHistorico)) {
+                //add novo usuario
+
+                $historicoTickets->adicionarTicket($codigo, $nomeUsuario, $novoHistorico);
+
+                $_SESSION['aviso'] = 'Sua nova resposta ao ticket foi adicionada com sucesso.';
+            }else{
+                //aviso preencha os campos solicitados
+                $dados['aviso'] = "Preencha o campo solicitado";
+            }
+        }
+        //fazendo o historico dos tickets aparecerem na tela.
+        $dados['historicoResposta'] = $historicoTickets->historicoTicket($codigo);
+
+        //pegando ticket unico
+
+        $ticket = new ticket();
+        $dados['ticket'] = $ticket->getTicket($codigo);
+
+        //print_r($_SESSION['twlg']); exit;
+        $this->LoadTemplate('verticket', $dados);
     }
 
 

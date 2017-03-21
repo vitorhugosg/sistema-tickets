@@ -8,14 +8,15 @@
 	<link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 <body>
 	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 		<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">Home</span>
+				<span class="mdl-layout-title">Sistema de Tickets de suporte</span>
 				<div class="mdl-layout-spacer"></div>
 				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
 					<i class="material-icons">more_vert</i>

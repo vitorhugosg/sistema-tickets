@@ -57,7 +57,11 @@ class usuarios extends model{
 
 		$sql = "INSERT INTO usuarios SET nome = '$nome', email = '$email', senha = '$senha', admin = '0'";
 		$sql = $this->db->query($sql);
+
 		$id = $this->db->lastInsertId();
+		//adicionar seguidor dele mesmo
+		$relacionamento = new relacionamentos();
+		$relacionamento->seguir($id, $id);
 
 		//isso vai ser a sessão do usuario
 		return $id;
@@ -114,6 +118,27 @@ class usuarios extends model{
 		}
 		// retorna a quantidade de seguidores como array
 		return $array;
+	}
+
+	public function getAdmin($id){
+
+		if (!empty($id)) {
+			$sql = "SELECT admin FROM usuarios WHERE id = '".$id."'";
+
+			
+			//acionando a query
+			$sql = $this->db->query($sql);
+
+			if ($sql->rowCount() > 0) {
+				$sql = $sql->fetch();
+
+				//retornando o nome do usuario
+
+				return $sql['admin'];
+			}
+		}
+
+		
 	}
 
 
