@@ -16,9 +16,7 @@ class helpers{
 		return rand(time(), 99);
 	}
 
-	public function formatarData($data){
-
-	}
+	
 }
 
 

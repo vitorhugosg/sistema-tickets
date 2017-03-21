@@ -138,6 +138,44 @@ class ticket extends model{
 		}
 
 	}
+
+	public function atualizaAtendimento($codigo){
+		//se o codigo não estiver vasio
+		$id = $_SESSION["twlg"];
+		$u = new usuarios();
+		$nome = $u->getNome($id);
+
+		if ($u->getAdmin($id) == '1') {
+				//atualiza ticket para data atual onde o codigo for igual codigo passado
+			$sql = "
+			UPDATE ticket
+			SET atendido = '$nome'
+			WHERE codigo = '$codigo'
+			";
+			//acionando a query
+			$sql = $this->db->query($sql);
+			return true;
+		}
+
+	}
+
+	public function atualizaStatus($codigo){
+		$id = $_SESSION["twlg"];
+		$u = new usuarios();
+		$nome = $u->getNome($id);
+
+		if ($u->getAdmin($id) == '1') {
+				//atualiza ticket para data atual onde o codigo for igual codigo passado
+			$sql = "
+			UPDATE ticket
+			SET status = '1'
+			WHERE codigo = '$codigo'
+			";
+			//acionando a query
+			$sql = $this->db->query($sql);
+			return true;
+		}
+	}
 }
 
 

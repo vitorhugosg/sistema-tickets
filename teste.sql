@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 21-Mar-2017 às 13:47
+-- Generation Time: 21-Mar-2017 às 20:43
 -- Versão do servidor: 5.6.35
 -- PHP Version: 7.1.1
 
@@ -33,8 +33,7 @@ CREATE TABLE `historico_ticket` (
 --
 
 INSERT INTO `historico_ticket` (`id`, `data_att`, `codigo`, `nome_usuario`, `texto`) VALUES
-(21, '2017-03-20 20:44:04', 293760740, 'VITOR HUGO', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
-(22, '2017-03-21 09:44:35', 293760740, 'VITOR HUGO', 'teste mais um!');
+(56, '2017-03-21 15:51:27', 92651631, 'VITOR HUGO', 'testando');
 
 -- --------------------------------------------------------
 
@@ -74,19 +73,16 @@ CREATE TABLE `ticket` (
   `status` tinyint(1) DEFAULT NULL,
   `texto_ticket` text,
   `usuario` int(11) DEFAULT NULL,
-  `arquivo` varchar(200) DEFAULT NULL
+  `arquivo` varchar(200) DEFAULT NULL,
+  `nome_usuario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ticket`
 --
 
-INSERT INTO `ticket` (`id`, `codigo`, `categoria`, `produto`, `data`, `data_att`, `atendido`, `status`, `texto_ticket`, `usuario`, `arquivo`) VALUES
-(28, 741978620, 'INTEL', 'teste', '2017-03-20 16:56:45', '2017-03-20 16:56:45', '--', 0, 'testeeee', 2, 'null'),
-(29, 633471559, 'INTEL', 'eaea', '2017-03-20 16:56:57', '2017-03-20 16:56:57', '--', 0, 'teste', 2, 'null'),
-(30, 266923438, 'AMD', 'PRODUTO', '2017-03-20 17:23:13', '2017-03-20 17:23:13', '--', 0, 'testando!', 5, 'null'),
-(31, 1424432364, 'INTEL', 'teste', '2017-03-20 17:37:38', '2017-03-20 17:37:38', '--', 0, 'teste', 2, 'null'),
-(32, 293760740, 'INTEL', 'teste', '2017-03-20 17:58:22', '2017-03-20 17:58:22', '--', 0, 'teste', 4, 'null');
+INSERT INTO `ticket` (`id`, `codigo`, `categoria`, `produto`, `data`, `data_att`, `atendido`, `status`, `texto_ticket`, `usuario`, `arquivo`, `nome_usuario`) VALUES
+(36, 92651631, 'AMD', 'Nome do produto', '2017-03-21 15:34:17', '2017-03-21 15:51:27', 'VITOR HUGO', 1, '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 4, 'null', 'teste3');
 
 -- --------------------------------------------------------
 
@@ -108,7 +104,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `admin`) VALUES
 (2, 'VITOR HUGO', 'vitorhugosg@gmail.com', 'e715778c9f759efab451c2eb7bf42332', 1),
-(4, 'teste3', 'vhcode@gmail.com', 'e715778c9f759efab451c2eb7bf42332', 0);
+(4, 'teste3', 'vhcode@gmail.com', 'e715778c9f759efab451c2eb7bf42332', 0),
+(6, 'admin', 'admin@admin.com', '698dc19d489c4e4db73e28a713eab07b', 1);
 
 --
 -- Indexes for dumped tables
@@ -146,7 +143,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `historico_ticket`
 --
 ALTER TABLE `historico_ticket`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `relacionamentos`
 --
@@ -156,9 +153,9 @@ ALTER TABLE `relacionamentos`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

@@ -125,17 +125,13 @@ class usuarios extends model{
 		if (!empty($id)) {
 			$sql = "SELECT admin FROM usuarios WHERE id = '".$id."'";
 
-			
 			//acionando a query
 			$sql = $this->db->query($sql);
+			$sql = $sql->fetch();
+				//retornando o se 1 se admin e 0 se usuario
 
-			if ($sql->rowCount() > 0) {
-				$sql = $sql->fetch();
-
-				//retornando o nome do usuario
-
-				return $sql['admin'];
-			}
+			return $sql['admin'];
+			
 		}
 
 		

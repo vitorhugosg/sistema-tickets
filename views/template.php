@@ -36,8 +36,11 @@
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 				<a class="mdl-navigation__link" href="<?php echo BASE_URL; ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Ínicio</a>
+				<?php if ($viewData['seEAdmin'] == '1'){ ?>
+					
+				<?php }else{ ?>
 				<a class="mdl-navigation__link" href="<?php echo BASE_URL; ?>/home/novoticket"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Novo Ticket</a>
-
+				<?php } ?>
 			</nav>
 		</div>
 		<?php
