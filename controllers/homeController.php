@@ -21,7 +21,7 @@ class homeController extends controller {
             'aviso' => '',
             'ticketTable' => ''
             );
-        
+
         $id = $_SESSION['twlg'];
         $u = new usuarios();
         $dados['seEAdmin'] = $u->getAdmin($id);
@@ -40,14 +40,14 @@ class homeController extends controller {
         if($nivel == '1'){
             $dados['ticketTable'] = $ticket->mostrarTicketsAdmin($lista);
         }else{
-           $dados['ticketTable'] = $ticket->mostrarTickets($lista);
-       }
-       $helper = new helpers();
-        //print_r($_SESSION['twlg']); exit;
-       $this->LoadTemplate('home', $dados);
-   }
+         $dados['ticketTable'] = $ticket->mostrarTickets($lista);
+     }
+         $helper = new helpers();
+            //print_r($_SESSION['twlg']); exit;
+         $this->LoadTemplate('home', $dados);
+     }
     //novo ticket view
-   public function novoticket() {
+ public function novoticket() {
     $dados = array(
         'nome' => ''
         );
@@ -88,46 +88,58 @@ class homeController extends controller {
 }
 
     //ver ticket
-public function verticket($codigo) {
-    $dados = array(
-        'nome' => ''
-        );
-    $id = $_SESSION['twlg'];
-    $u = new usuarios();
-    $dados['seEAdmin'] = $u->getAdmin($id);
-    $nomeUsuario = $u->getNome($id);
-    $dados['nome'] = $u->getNome($id);
+    public function verticket($codigo) {
+        $dados = array(
+            'nome' => ''
+            );
+        $id = $_SESSION['twlg'];
+        $u = new usuarios();
+        $dados['seEAdmin'] = $u->getAdmin($id);
+        $nomeUsuario = $u->getNome($id);
+        $dados['nome'] = $u->getNome($id);
 
 
-        //instanciando classe historico de tickets
-    $historicoTickets = new historico_ticket();
+            //instanciando classe historico de tickets
+        $historicoTickets = new historico_ticket();
 
-        //fazendo tratamento de form
-    if (isset($_POST['novoHistoricoTicket'])) {
-        $novoHistorico = addslashes($_POST['novoHistoricoTicket']);
+            //fazendo tratamento de form
+        if (isset($_POST['novoHistoricoTicket'])) {
+            $novoHistorico = addslashes($_POST['novoHistoricoTicket']);
 
-        if (!empty($novoHistorico)) {
-                //add novo usuario
+            if (!empty($novoHistorico)) {
+                    //add novo usuario
 
-            $historicoTickets->adicionarTicket($codigo, $nomeUsuario, $novoHistorico);
+                $historicoTickets->adicionarTicket($codigo, $nomeUsuario, $novoHistorico);
 
-            $_SESSION['aviso'] = 'Sua nova resposta ao ticket foi adicionada com sucesso.';
-        }else{
-                //aviso preencha os campos solicitados
-            $dados['aviso'] = "Preencha o campo solicitado";
+                $_SESSION['aviso'] = 'Sua nova resposta ao ticket foi adicionada com sucesso.';
+            }else{
+                    //aviso preencha os campos solicitados
+                $dados['aviso'] = "Preencha o campo solicitado";
+            }
         }
+            //fazendo o historico dos tickets aparecerem na tela.
+        $dados['historicoResposta'] = $historicoTickets->historicoTicket($codigo);
+
+            //pegando ticket unico
+
+        $ticket = new ticket();
+        $dados['ticket'] = $ticket->getTicket($codigo);
+
+            //print_r($_SESSION['twlg']); exit;
+        $this->LoadTemplate('verticket', $dados);
     }
-        //fazendo o historico dos tickets aparecerem na tela.
-    $dados['historicoResposta'] = $historicoTickets->historicoTicket($codigo);
 
-        //pegando ticket unico
+    public function fecharticket($codigo){
+        $dados = array(
+            'nome' => ''
+            );
+        $ticket = new ticket();
+        $ticket->fecharTicket($codigo);
 
-    $ticket = new ticket();
-    $dados['ticket'] = $ticket->getTicket($codigo);
+        $_SESSION['fechar'] = "ok";
+        header("Location: " . BASE_URL . "/home/verticket/" . $codigo);
 
-        //print_r($_SESSION['twlg']); exit;
-    $this->LoadTemplate('verticket', $dados);
-}
+    }
 
 
 }

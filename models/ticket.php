@@ -177,6 +177,18 @@ class ticket extends model{
 		}
 	}
 
+	public function fecharTicket($codigo){
+		
+		$sql = "
+		UPDATE ticket
+		SET status = '2'
+		WHERE codigo = '$codigo'
+		";
+		//acionando a query
+		$sql = $this->db->query($sql);
+		return true;
+	}
+
 	//fechando status do ticket
 	
 }

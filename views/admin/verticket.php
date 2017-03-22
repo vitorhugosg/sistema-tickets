@@ -35,6 +35,9 @@
 				</p>
 			</div>
 				<div class="mdl-cell--12-col mdl-grid">
+					<?php if ($ticket['status'] == "2"){ ?>
+						<p class="dentro-ticket-text"><b>Este ticket foi finalizado. </b> </p>
+					<?php }else{ ?>
 					<form method="POST" class="mdl-cell--12-col mdl-grid">
 						<h5><b>Mais alguma duvida?:</b></h5>
 
@@ -50,7 +53,13 @@
 							Adicionar informações
 						</button>
 					</div>
+					<div class="mdl-cell--3-col mdl-grid">
+						<a class="mdl-button mdl-js-button mdl-button--raised pull-right" href='<?php echo BASE_URL; ?>/home/fecharticket/<?php echo $ticket["codigo"];?>'>
+							Fechar Ticket
+						</a>
+					</div>
 				</form>
+			<?php } ?>
 			</div>
 		</div>
 	</div>
